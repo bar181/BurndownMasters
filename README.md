@@ -54,6 +54,8 @@ Rationale for ordering
     - Acceptance criteria: all team members have a mutual understanding of the story and the goal
     - Estimated in story points: Points should be from 1-3 based on effort as determined by dev members. For reference: 3 is the largest PBI allowed (e.g. intial set up), 1 is a minor feature (e.g. add rating) 
     It is encouraged to have backlog items at 1 but this is not required
+    - Key functional tests (if required): Identify an input that will provide a desired outcome (e.g. shows the star rating out of 5)
+    - Dependencies ready: List of any unique dependencies with confirmation of done (e.g. admin rights required for editing)
 15. Estimates in relative size units - See Miro
 16. Whole team relative size: 20 Total Points across 11 backlog items<br>
 Activity Name: **Agile Animals**  
