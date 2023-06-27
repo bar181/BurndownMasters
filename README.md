@@ -66,3 +66,55 @@ Activity Name: **Agile Animals**
 17. Confirmation Dev-only estimates:<br>
 Bharat <agree><br>
 Brad <agree>
+
+
+## Deliverable 2: First Sprint June 29, 2023
+1. Sprint planning: Story Point Forecast _TODO_ 
+2. Rationale for forecast: _TODO_sentence_
+3. Sprint planning checklist
+   - Stories from top of Product Backlog: TRUE
+   - Aggregate size < forecast: TRUE
+   - Developers participated: TRUE
+   - Proof of Developer participation
+
+    _TODO_image_
+4. Backlog stories right size, <50% total effort, refine large items: TRUE
+5. Tasks:
+   - decompose PBI into task: DONE _TODO_total_tasks
+   - tasks listed in sprint backlog: TRUE
+6. MIRO for sprint backlog: _TODO_URL_
+7. Public sprint burndown chart: _TODO_URL_
+8. Daily scrums: 2 completed
+
+    _TODO_image_
+
+9. Member activity checklist
+Discussion occurred: TRUE
+   - item: person
+   - item: person
+   - item: person
+   - item: person
+   - item: person
+10. Impediments: 
+Impediment recourse
+11. Pair programming evidence:
+
+    _TODO_image_2_images_total
+
+12. Evidence of TDD with minimum 10 tests
+13. Sprint REview: done
+14. Product increment is working software
+
+    _TODO_image_of software
+    _TODO_URL_of_software
+    _TODO_show_invitation_to_test_software
+
+15. One stakeholder attends sprint review
+
+    _TODO_image_
+    Revisited backlog based on feedback: TRUE
+    - feedback provided
+16. Sprint retrospective: DONE
+    - action to improve
+    - new PBI added to top of PBI 
+17. All BPI are true user stories
