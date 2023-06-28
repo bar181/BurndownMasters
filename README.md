@@ -56,45 +56,50 @@ Rationale for ordering
     It is encouraged to have backlog items at 1 but this is not required
     - Key functional tests (if required): Identify an input that will provide a desired outcome (e.g. shows the star rating out of 5)
     - Dependencies ready: List of any unique dependencies with confirmation of done (e.g. admin rights required for editing)
-15. Estimates in relative size units - See Miro
-16. Whole team relative size: 20 Total Points across 11 backlog items<br>
+16. Estimates in relative size units - See Miro 
+17. Whole team relative size: 20 Total Points across 11 backlog items<br>
 Activity Name: **Agile Animals**  
     - Identify dev team skill sets
     - Group PBI into 3 classifications (1 small, 3 largest)
     - Classification done by dev team based on dev team experience/skill set not external benchmarks
     - Any PBI larger than 3 were decomposed as re-classified
-17. Confirmation Dev-only estimates:<br>
+18. Confirmation Dev-only estimates:<br>
 Bharat <agree><br>
 Brad <agree>
 
 
 ## Deliverable 2: First Sprint June 29, 2023
-1. Sprint planning: Story Point Forecast _TODO_ 
-2. Rationale for forecast: _TODO_sentence_
+1. Sprint planning: Story Point Forecast 8 
+2. Rationale for forecast: Guess based on experience
+Brad has some experience with setting up python and autothorization.
+The hosting configuration timing is unknown (based on provider)
 3. Sprint planning checklist
    - Stories from top of Product Backlog: TRUE
    - Aggregate size < forecast: TRUE
    - Developers participated: TRUE
-   - Proof of Developer participation
+   - Proof of Developer participation: TRUE (we attest)
 
-    _TODO_image_
+    _TODO_image_DONE_
+
 4. Backlog stories right size, <50% total effort, refine large items: TRUE
+We needed to decompose items 
 5. Tasks:
-   - decompose PBI into task: DONE _TODO_total_tasks
-   - tasks listed in sprint backlog: TRUE
-6. MIRO for sprint backlog: _TODO_URL_
-7. Public sprint burndown chart: _TODO_URL_
+   - decompose PBI into task: 4 items (8 points)
+   - tasks listed in sprint backlog: TRUE (total tasks: 16)
+6. MIRO for sprint backlog: https://miro.com/app/board/uXjVM6jdFDo=/
+7. Public sprint burndown chart: https://docs.google.com/spreadsheets/d/1aXzgwyhYiIOxKWGeQJib_VyrE4WT63Q_pTDonNz1vxI/edit?usp=sharing
 8. Daily scrums: 2 completed
 
     _TODO_image_
 
 9. Member activity checklist
 Discussion occurred: TRUE
-   - item: person
-   - item: person
-   - item: person
-   - item: person
-   - item: person
+Organized by PBI
+   - BPI Hosting: item: person
+   - Local Python: item: person
+   - Auth Setup: item: person
+   - Blog tips: person
+
 10. Impediments: 
 Impediment recourse
 11. Pair programming evidence:
@@ -102,7 +107,7 @@ Impediment recourse
     _TODO_image_2_images_total
 
 12. Evidence of TDD with minimum 10 tests
-13. Sprint REview: done
+13. Sprint Review: done
 14. Product increment is working software
 
     _TODO_image_of software
