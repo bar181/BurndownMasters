@@ -2,9 +2,9 @@
 
 ### Harvard Summer School 2023:  S-71 Agile
 ### Team: BurndownMasters
-- Malaika Goswamy: Product Owner, Scrum Master
+- Malaika Goswamy: Scrum Master, Developer
 - Bharat Santhosh Raja: Developer
-- Bradley Ross:  Developer
+- Bradley Ross:  Product Owner, Developer
 
 ### tl:dr 
 IvyGuide is a student-maintained web app providing a singular, informal location for all tips, tricks, 
@@ -92,38 +92,64 @@ We needed to decompose items
 
     _TODO_image_
 
-9. Member activity checklist
-Discussion occurred: TRUE
-Task list organized by PBI: all devs responsible, vital notes in comments, use dev initials and assign status
+   9. Member activity checklist
+   Discussion occurred: TRUE for all scrum meetings
+   Task list organized by PBI: all devs responsible, vital notes in comments, use dev initials and assign status
 
-    DAILY SCRUM 1: June 28
-
-    welcome to ivy guide page (2 story points)
-    - identify host (DONE by BA) Digital Ocean ;)
-    - configure server (IN PROGRESS - BA) Initial setup works, Flask not set up 
-    - upload python environment (IN PROGRESS - BA, MG, BR) - started
-    - welcome message to visitors (DONE - BA) live content appears as expected
-
-    local python setup (2)
-   - python setup (DONE BR) Pushed to github with commit 'Sprint 1: ready for 1st deploy' ;)
-   - welcome note (DONE BR) Hero image with welcome text
-   - navigation (DONE BR) Basic navbar with link to home page 
-   - set up tests (DONE BR) set up unit_tests.py to test framework only
+       DAILY SCRUM 1: June 28
    
-    User authorization (2)
-   - database setup
-   - log in and register page
-   - nav bar links
-   - error handling
+       welcome to ivy guide page (2 story points) - IN PROCESS 2/4 TASKS COMPLETE
+       - identify host (DONE by BA) Digital Ocean ;)
+       - configure server (IN PROCESS - BA) Initial setup works, Flask not set up 
+       - upload python environment (IN PROCESS - BA) - started
+       - welcome message to visitors (DONE - BA) live content appears as expected
 
-    provide useful tips online (2)
-   - write 5 posts
-   - wireframe frontend style
-   - display dynamic content
-   - add frontend style framework (DONE BR) uses tailwindcss, daisyui
+       local python setup (2) - IN PROCESS 2/4 TASKS COMPLETE
+      - python setup (DONE BR) Pushed to github with commit 'Sprint 1: ready for 1st deploy' ;)
+      - welcome note (IN PROCESS BR) 
+      - navigation 
+      - set up tests 
+   
+       User authorization (2)
+      - database setup
+      - log in and register page 
+      - nav bar links 
+      - error handling - register functionality
 
-10. Impediments: 
-Impediment recourse
+       provide useful tips online (2)
+      - write 5 posts 
+      - wireframe frontend style 
+      - display dynamic content 
+      - add frontend style framework 
+   
+       DAILY SCRUM 2: June 29
+
+       welcome to ivy guide page (2 story points)
+       - identify host (DONE by BA) Digital Ocean ;)
+       - configure server (IN PROCESS - BA) Initial setup works, Flask not set up 
+       - upload python environment (IN PROCESS - BA) - started
+       - welcome message to visitors (DONE - BA) live content appears as expected
+
+       local python setup (2) - DONE ;)
+      - python setup (DONE BR) Pushed to github with commit 'Sprint 1: ready for 1st deploy' ;)
+      - welcome note (DONE BR) Hero image with welcome text
+      - navigation (DONE BR) Basic navbar with link to home page 
+      - set up tests (DONE BR) set up unit_tests.py, test login/register form functionality formats
+   
+       User authorization (2) - UNABLE TO MEET DEADLINE 
+      - database setup
+      - log in and register page (IN PROCESS BR) - ui done, tests done, functionality not done
+      - nav bar links (IN PROCESS BR) - link to register, login ready but not shown 
+      - error handling - register functionality
+
+       provide useful tips online (2) - DONE ;)
+      - write 5 posts (DONE BR) 6 posts done
+      - wireframe frontend style (DONE BR) - use card style with title and text
+      - display dynamic content (DONE BR) - uses loop to show all tips (no database)
+      - add frontend style framework (DONE BR) uses tailwindcss, daisyui
+
+10. Impediments and Impediment recourse
+Scrum June 28
     - python local config issues: SOLVED - revert commit, reinstall flask
     - python environments not the same across dev - high priority - TO SOLVE collaborate to ensure consistency that we can all code together
     - not sure if we can use existing repo with Digital Ocean - TO SOLVE research and test
@@ -132,7 +158,7 @@ Impediment recourse
 
     _TODO_image_2_images_total
 
-12. Evidence of TDD with minimum 10 tests
+12. Evidence of TDD with minimum 10 tests: 16 tests DONE (21 asserts)
 13. Sprint Review: done
 14. Product increment is working software
 

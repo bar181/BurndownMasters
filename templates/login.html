@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="flex items-center justify-center mx-auto p-5 ">
+<div class="card w-96 shadow-2xl ">
+    <div class="w-full text-center p-5 uppercase text-2xl font-bold">LOGIN </div>
+  <div class="card-body">
+   <form action='login' method='POST'>
+       <div class="p-5">
+           <input type="text" name='email' id='email' placeholder="email" class="input input-bordered input-primary w-full max-w-xs" />
+       </div>
+       <div class="p-5">
+           <input type="password" name='password' id='password' placeholder="password" class="input input-bordered input-primary w-full max-w-xs" />
+       </div>
+       <div class="p-5">
+           <input type="text" name='admincode' id='admincode' placeholder="login for admin only" class="input input-bordered input-primary w-full max-w-xs" />
+       </div>
+       <div class="p-5">
+           <input class="btn btn-primary normal-case text-xl" type='submit' name='submit'/>
+       </div>
+   </form>
+  </div>
+</div>
+
+</div>
+</div>
+
+{% endblock %}
