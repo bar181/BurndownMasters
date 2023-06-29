@@ -94,14 +94,40 @@ We needed to decompose items
 
 9. Member activity checklist
 Discussion occurred: TRUE
-Organized by PBI
-   - BPI Hosting: item: person
-   - Local Python: item: person
-   - Auth Setup: item: person
-   - Blog tips: person
+Task list organized by PBI: all devs responsible, vital notes in comments, use dev initials and assign status
+
+    DAILY SCRUM 1: June 28
+
+    welcome to ivy guide page (2 story points)
+    - identify host (DONE by BA) Digital Ocean ;)
+    - configure server (IN PROGRESS - BA) Initial setup works, Flask not set up 
+    - upload python environment (IN PROGRESS - BA, MG, BR) - started
+    - welcome message to visitors (DONE - BA) live content appears as expected
+
+    local python setup (2)
+   - python setup (DONE BR) Pushed to github with commit 'Sprint 1: ready for 1st deploy' ;)
+   - welcome note (DONE BR) Hero image with welcome text
+   - navigation (DONE BR) Basic navbar with link to home page 
+   - set up tests (DONE BR) set up unit_tests.py to test framework only
+   
+    User authorization (2)
+   - database setup
+   - log in and register page
+   - nav bar links
+   - error handling
+
+    provide useful tips online (2)
+   - write 5 posts
+   - wireframe frontend style
+   - display dynamic content
+   - add frontend style framework (DONE BR) uses tailwindcss, daisyui
 
 10. Impediments: 
 Impediment recourse
+    - python local config issues: SOLVED - revert commit, reinstall flask
+    - python environments not the same across dev - high priority - TO SOLVE collaborate to ensure consistency that we can all code together
+    - not sure if we can use existing repo with Digital Ocean - TO SOLVE research and test
+
 11. Pair programming evidence:
 
     _TODO_image_2_images_total

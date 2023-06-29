@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect
 import flask_login
 
 # setup stuff - public can view this
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 app.secret_key = 'iamPublic_NotASecret1!thatsOkayForNow'
 
 login_manager = flask_login.LoginManager()
