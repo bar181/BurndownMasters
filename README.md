@@ -198,7 +198,7 @@ Scrum June 29
 
 14. Product increment is working software
 
-    LIVE product ![live_site_1](readme_pics/live1.jpg) ![live_site_2](readme_pics/live2.jpg)
+    LIVE product ![live_site_1](readme_pics/live1.PNG) ![live_site_2](readme_pics/live2.jpg)
     Software public URL: https://coral-app-kb426.ondigitalocean.app/
     invitation ![invitation_text](readme_pics/invite.jpg)
 
