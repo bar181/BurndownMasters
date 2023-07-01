@@ -220,3 +220,77 @@ Scrum June 29
     - 2) Authorization was not completed and need to be reevaluated for next sprint and included as a PBI 
     
 17. All BPI are true user stories: BPI near top of list were restated
+
+## Deliverable 3: Sptrint 2 - July 3, 2023
+1. Sprint Planning
+2. Rationale for forecast:
+3. Sprint planning checklist (with proof)
+4. Backlog stories right size, <50% total effort, refine large items: 
+
+    ![backlop - scrum 2](readme_pics/scrum2/backlog_scrum2.jpg)
+
+5. User story to developer tasks:
+6. MIRO for sprint backlog
+7. Public sprint burndown chart:
+8. Daily scrums: (insert pics)
+
+    __TO_DO_IMAGE__ July 1
+    __TO_DO_IMAGE__ July 2
+    __TO_DO_IMAGE__ July 3
+
+9. Member activity checklist Discussion occurred:
+
+    ![sprint2_scrum1](readme_pics/scrum2/sprint2_scrum1.PNG)
+    DAILY SCRUM 1: July 1 accomplishments
+   
+   ### PBI 1: Working Environment - DONE 1/1 TASKS COMPLETE
+   - New location (DONE by MG) Dunster Basement ;)
+
+    ### PBI 2: Create categories to enhance UX: IN PROCESS 2/5 TASKS COMPLETE
+    - identify category names: (IN PROCESS by MG) via talking with current students
+    - create a database and ensure connection (IN PROCESS BA)
+    - upload post content to database
+    - UI category buttons, new wireframe, new routes (DONE BR) - 
+    - show content by category
+    
+    ### PBI 3: Provide amazing content to wow Mya: IN PROCESS 2/4 TASKS COMPLETE
+    - New content: : (IN PROCESS by MG) 20 posts ready in draft form via talking with current students
+    - Transpose content into database: 
+    - DB retrieve content by category:
+    - User form post:
+    
+    ### PBI 4: Approved users can post: IN PROCESS 2/4 TASKS COMPLETE
+    -  login functionality: (IN PROCESS by BR) - most tests create, package installed
+    - new DB table for approved users with email, author name:
+    - login button on navbar, login page with verification:
+    - post page with form posted as new item in database:
+    
+    
+10. what we did the past 24 hours: see items 9 (marked as DONE or IN-PROCESS) 
+11. what we will do the next 24 hours: working on 7 tasks (all 3 devs involved)
+    PBI 2: Create categories to enhance UX: 2 tasks planned for DONE
+    - identify category names: MG plans DONE - no impediments 
+    - create a database and ensure connection: BA plans DONE - no impediments
+    - 
+    PBI 3: Provide amazing content to wow Mya: 3 tasks planned for DONE, 1 potential impediment
+    - New content: : MG plans DONE - no impediments
+    - Transpose content into database: BA plans DONE - no impediments
+    - DB retrieve content by category: BA plans DONE - impediments: pending successful database connections
+    - 
+    PBI 4: Approved users can post: 2 tasks planned for DONE
+    -  login functionality: BR plans DONE - no impediments
+    - login button on navbar, login page with verification: BR plans DONE - no impediments
+
+12. any impediments 
+
+    Impediments: Scrum 1
+    - Some dependencies.  No resolve plan needed but team aware may require additional effort next day to help
+
+13. update sprint task board TWICE and burndown chart (with proof)
+14. Pair programming evidence:
+15. TDD evidence with 20 tests 
+16. sprint review 
+17. Product increment is working software
+18. stakeholder attends sprint review (with proof)
+19. sprint retrospective 
+20. All BPI are true user stories:
