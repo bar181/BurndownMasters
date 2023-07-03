@@ -373,7 +373,7 @@ Updated 3 times (below is proof of 2 times)
     All 3 devs worked together.  Along with daily scrum proof (item 8) please see this photo as evidence
     We assert all 3 devs worked together in both mob and pair programming
 
-    ![pair_sprint2](readme_pics/scrum2/pair_sprint2.PNG)
+    ![pair_sprint2](readme_pics/scrum2/pair_sprint2.jpg)
 
 15. TDD evidence with 28 tests (15 net new, some old test were refactored on new information and 3 old tests removed as no longer required)
     - Updated location of test to include directory: tests (per feedback on last grades report)
@@ -391,7 +391,7 @@ Updated 3 times (below is proof of 2 times)
 - screen cap of software ![working_categories_site](readme_pics/scrum2/working_categories.PNG)
 18. stakeholder attends sprint review (with proof)
     - DONE with Nat (Summer student from Dunster Hall)
-    - ![Nat_reviewing](readme_pics/scrum2/sprint_review_2.PNG)
+    - ![Nat_reviewing](readme_pics/scrum2/sprint_review_2.jpg)
     - improvement feedback - I like that there are real tips. Based on feedback, we may lower the priority for self-added tips
 19. sprint retrospective 
     - retrospective done: True
