@@ -2,11 +2,41 @@
 
 {% block body %}
 <div class="flex items-center justify-center mx-auto p-5 ">
-    <div class="card w-96 bg-red-50 shadow-xl p-5 ">
-       Welcome Admin !
-        {{user}}
-    </div>
+<div class="">
+ <div class="card w-96 bg-red-50 shadow-xl p-5 ">
+           Welcome My Amazing Verified Student  {{user.id}} {{user.name}}
+            </div>
+        <div class="card shadow-2xl mt-5">
 
+
+            <div class="w-full text-center p-5 uppercase text-2xl font-bold">NEW POST </div>
+          <div class="card-body">
+           <form action='new-post' method='POST'>
+               <div class="p-5">
+                   <span class="pl-5">Title</span>
+                   <input type="text" name='title' id='title' placeholder="title" class="input input-bordered input-primary w-full " />
+               </div>
+               <div class="p-5">
+                   <span class="pl-5">Content</span>
+                   <input type="text" name='text' id='text' placeholder="Content" class="input input-bordered input-primary w-full " />
+               </div>
+               <div class="p-5">
+                   <span class="pl-5">Category</span>
+                   <input type="text" name='category' id='category' placeholder="Category" class="input input-bordered input-primary w-full " />
+               </div>
+
+               <div class="p-5">
+                   <input class="btn btn-primary btn-active btn-block normal-case text-xl" type='submit' name='submit'/>
+               </div>
+               <div class="p-5">
+                  <div class="w-full text-center text-gray-400 ">Contact IvyGuide for member applications to become a verified student</div>
+               </div>
+           </form>
+          </div>
+        </div>
+
+        </div>
+    </div>
 </div>
 
 {% endblock %}

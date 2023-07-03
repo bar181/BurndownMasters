@@ -17,41 +17,31 @@ login_manager.init_app(app)
 
 # Our mock database for users
 # users = {'me@ivyguide.edu': {'password': 'notSoSecret1!'}}
-
-users = []
-
-user = {'me@ivyguide.edu': {
-    'id': 0,
-    'name': 'IvyGuide',
-    'role': 1,
-    'password': 'notSoSecret1!'}
+users = {
+    'me@ivyguide.edu': {
+        'id': 0,
+        'name': 'IvyGuide',
+        'email': 'me@ivyguide.edu',
+        'role': 1,
+        'password': 'notSoSecret1!'
+    },
+    'mg@ivyguide.edu': {
+        'id': 1,
+        'name': 'Malaika Goswamy',
+        'email': 'mg@ivyguide.edu',
+        'role': 1,
+        'password': 'notSoSecret1!'
+    }
 }
-users.append(user)
-user = {'mg@ivyguide.edu': {
-    'id': 1,
-    'name': 'Malaika Goswamy',
-    'role': 1,
-    'password': 'notSoSecret1!'}
-}
-users.append(user)
-user = {'br@ivyguide.edu': {
-    'id': 2,
-    'name': 'Bradley Ross',
-    'role': 1,
-    'password': 'notSoSecret1!'}
-}
-users.append(user)
-user = {'ba@ivyguide.edu': {
-    'id': 3,
-    'name': 'Bharat Agile',
-    'role': 1,
-    'password': 'notSoSecret1!'}
-}
-users.append(user)
 
 # verified new user invitation code
 admin_code = "Agile"
 
+# Password vailidations - MAKE CHANGES IN TDD tests/unit_tests.py
+MIN_PASSWORD = 6
+MAX_PASSWORD = 12
+UPPERCASE = True
+LOWERCASE = True
 
 class User(flask_login.UserMixin):
     pass
@@ -123,28 +113,28 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    print("def login")
+    print("def login - line 131")
     print(users)
-
     if request.method == 'GET':
         return render_template("login.html")
 
     email = request.form['email']
-    if email in users and request.form['password'] == users[email]['password']:
+    password = request.form['password']
+
+    if email in users and password == users[email]['password']:
         user = User()
         user.id = email
         flask_login.login_user(user)
         return redirect('/new-posts')
-
 
     return redirect('/bad-request')
 
 
 # this is the verified user post
 @app.route('/new-posts')
-@flask_login.login_required
+# @flask_login.login_required
 def protected():
-    return render_template("new_posts.html", user=flask_login.current_user.id)
+    return render_template("new_posts.html", user=flask_login.current_user)
     # return 'Logged in as: ' + flask_login.current_user.id
 
 

@@ -260,14 +260,60 @@ Scrum June 29
     - User form post:
     
     ### PBI 4: Approved users can post: IN PROCESS 2/4 TASKS COMPLETE
-    -  login functionality: (IN PROCESS by BR) - most tests create, package installed
+    -  login functionality: (IN PROCESS by BR) - package installed
     - new DB table for approved users with email, author name:
     - login button on navbar, login page with verification:
     - post page with form posted as new item in database:
+   
+    ![sprint2_scrum2](readme_pics/scrum2/team_sprint2_scrum1.jpg)
+
+   ### Planned work  working on 7 tasks (all 3 devs involved)
+   PBI 2: Create categories to enhance UX: 2 tasks planned for DONE
+    - identify category names: MG plans DONE - no impediments 
+    - create a database and ensure connection: BA plans DONE - no impediments
+    - 
+    PBI 3: Provide amazing content to wow Mya: 3 tasks planned for DONE, 1 potential impediment
+    - New content: : MG plans DONE - no impediments
+    - Transpose content into database: BA plans to start - impediments: pending successful database connections
+    - DB retrieve content by category: BA plans to start - impediments: pending successful database connections
+    - 
+    PBI 4: Approved users can post: 2 tasks planned for DONE
+    -  login functionality: BR plans DONE - no impediments
+    - login button on navbar, login page with verification: BR plans DONE - no impediments
+   
+   ### Impediments: 1 potential
+    - Some dependencies.  No resolve plan needed but team aware may require additional effort next day to help
+- 
+
+  
+  DAILY SCRUM 2: July 2 accomplishments
+   _TODO_SPRINT_BACKLOG_IMAGE
+
+   ### PBI 1: Working Environment - DONE 1/1 TASKS COMPLETE
+   - New location (DONE by MG) Dunster Basement ;)
+
+  ### PBI 2: Create categories to enhance UX: IN PROCESS 2/5 TASKS COMPLETE
+  - identify category names: (DONE by MG) - 5 to be on live site
+  - create a database and ensure connection (IN PROCESS BA) - tested local works, live to do
+  - upload post content to database (IN PROCESS BA, BR, MG)
+  - UI category buttons, new wireframe, new routes (DONE BR) - 
+  - show content by category (IN PROCESS BR, MG)
     
+  ### PBI 3: Provide amazing content to wow Mya: IN PROCESS 2/4 TASKS COMPLETE
+  - New content: : (IN PROCESS by MG) 29 posts ready - multiple for each category
+  - Transpose content into database: IN PROCESS (BA, MG) - files shared
+  - DB retrieve content by category: IN PROCESS (BA, MG) - files shared
+  - User form post: IN PROCESS (BR, MG)
     
-10. what we did the past 24 hours: see items 9 (marked as DONE or IN-PROCESS) 
-11. what we will do the next 24 hours: working on 7 tasks (all 3 devs involved)
+  ### PBI 4: Approved users can post: IN PROCESS 2/4 TASKS COMPLETE
+  -  login functionality: (IN PROCESS by BR) - new tests created
+  - new DB table for approved users with email, author name:
+  - login button on navbar, login page with verification:
+  - post page with form posted as new item in database:
+    
+    ![sprint2_scrum2](readme_pics/scrum2/team_sprint2_scrum2.jpg)
+
+    ### Planned work  working on 7 tasks (all 3 devs involved)
     PBI 2: Create categories to enhance UX: 2 tasks planned for DONE
     - identify category names: MG plans DONE - no impediments 
     - create a database and ensure connection: BA plans DONE - no impediments
@@ -280,11 +326,14 @@ Scrum June 29
     PBI 4: Approved users can post: 2 tasks planned for DONE
     -  login functionality: BR plans DONE - no impediments
     - login button on navbar, login page with verification: BR plans DONE - no impediments
+    
 
-12. any impediments 
+  ### Impediments:  1 potential
+   - Some dependencies.  No resolve plan needed but team aware may require additional effort next day to help
 
-    Impediments: Scrum 1
-    - Some dependencies.  No resolve plan needed but team aware may require additional effort next day to help
+10. what we did the past 24 hours: see item 9 (marked as DONE or IN-PROCESS) 
+11. what we will do the next 24 hours: see item 9
+12. any impediments: see item 9
 
 13. update sprint task board TWICE and burndown chart (with proof)
 14. Pair programming evidence:

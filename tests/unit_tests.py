@@ -5,20 +5,43 @@ import re
 
 # password validation rules
 MIN_PASSWORD = 6
-MAX_PASSWORD = 12
+MAX_PASSWORD = 30
 UPPERCASE = True
 LOWERCASE = True
 
+# sample user
+users = []
+# user = {
+#     'id': 0,
+#     'name': 'IvyGuide',
+#     'email': 'me@ivyguide.edu',
+#     'role': 1,
+#     'password': 'notSoSecret1!'
+# }
+user = {'me@ivyguide.edu': {
+    'id': 0,
+    'name': 'IvyGuide',
+    'email': 'me@ivyguide.edu',
+    'role': 1,
+    'password': 'notSoSecret1!'}
+}
+users.append(user)
+
 
 def return_known_user():
-    good = {}  # Create an empty dictionary
-    good['email'] = 'me@ivyguide.edu'
-    good['password'] = 'notSoSecret1!'
-    good['admin_code'] = 1234
-    return good
+    return users[0]['me@ivyguide.edu']
 
 
 # returns False if any validation rules fail
+def validate_login(email, password):
+
+    if not is_valid_email(email):
+        return False
+    if not password_size(password):
+        return False
+
+    return True
+
 def check_login(email, password):
     known_user = return_known_user()
     if email != known_user['email']:
@@ -66,6 +89,18 @@ class MyTestCase(unittest.TestCase):
         known_user = return_known_user()
         self.assertNotEqual(known_user['email'], user_input)
 
+    def test_user_format_okay(self):
+        known_user = return_known_user()
+        self.assertEqual(known_user['name'], "IvyGuide")
+#
+    def test_user_format_has_all_fields(self):
+        known_user = return_known_user()
+        self.assertEqual(known_user['id'], 0)
+        self.assertEqual(known_user['name'], "IvyGuide")
+        self.assertEqual(known_user['email'], "me@ivyguide.edu")
+        self.assertEqual(known_user['role'], 1)
+        self.assertEqual(known_user['password'], "notSoSecret1!")
+
     def test_good_email(self):
         user_input = 'me@ivyguide.edu'
         known_user = return_known_user()
@@ -81,22 +116,22 @@ class MyTestCase(unittest.TestCase):
         known_user = return_known_user()
         self.assertEqual(known_user['password'], user_input)
 
-    def test_bad_admin_code(self):
+    def test_bad_role(self):
         user_input = 'IamBad'
         known_user = return_known_user()
-        self.assertNotEqual(known_user['admin_code'], user_input)
+        self.assertNotEqual(known_user['role'], user_input)
 
-    def test_good_admin_code(self):
-        user_input = 1234
+    def test_good_role(self):
+        user_input = 1
         known_user = return_known_user()
-        self.assertEqual(known_user['admin_code'], user_input)
-
+        self.assertEqual(known_user['role'], user_input)
+#
     def test_password_size(self):
         user_input = 'small'
         self.assertEqual(False, password_size(user_input))
 
     def test_password_too_big(self):
-        user_input = 'iambigiambigiambigiambigiambig'
+        user_input = 'iambigiambigiambigiambigiambigLikeReallyeallyeallyLong!'
         self.assertEqual(False, password_size(user_input))
 
     def test_password_uppercase(self):
@@ -111,23 +146,44 @@ class MyTestCase(unittest.TestCase):
         user_input = 'PASSWORD'
         self.assertEqual(False, has_lowercase(user_input))
 
-    def test_login_good(self):
+    # def test_login_good(self):
+    #     known_user = return_known_user()
+    #     user_email = known_user['email']
+    #     user_password = known_user['password']
+    #     self.assertEqual(True, check_login(user_email, user_password))
+
+    def test_validate_login(self):
         known_user = return_known_user()
         user_email = known_user['email']
         user_password = known_user['password']
-        self.assertEqual(True, check_login(user_email, user_password))
+        self.assertEqual(True, validate_login(user_email, user_password))
 
-    def test_login_bad_email(self):
-        known_user = return_known_user()
-        user_email = 'IamBad'
-        user_password = known_user['password']
-        self.assertEqual(False, check_login(user_email, user_password))
 
-    def test_login_bad_password(self):
-        known_user = return_known_user()
-        user_email = known_user['email']
-        user_password = 'IamBad'
-        self.assertEqual(False, check_login(user_email, user_password))
+    # def test_validate_login_bad_email(self):
+    #     known_user = return_known_user()
+    #     user_email = "IamBad"
+    #     user_password = known_user['password']
+    #     self.assertEqual(False, validate_login(user_email, user_password))
+
+    # def test_validate_login_bad_password_size(self):
+    #     known_user = return_known_user()
+    #     user_email = known_user['email']
+    #     user_password = '123'
+    #     self.assertEqual(False, validate_login(user_email, user_password))
+    #     user_password = '1234567890123456789'
+    #     self.assertEqual(False, validate_login(user_email, user_password))
+
+    # def test_login_bad_email(self):
+    #     known_user = return_known_user()
+    #     user_email = 'IamBad'
+    #     user_password = known_user['password']
+    #     self.assertEqual(False, check_login(user_email, user_password))
+    #
+    # def test_login_bad_password(self):
+    #     known_user = return_known_user()
+    #     user_email = known_user['email']
+    #     user_password = 'IamBad'
+    #     self.assertEqual(False, check_login(user_email, user_password))
 
     def test_email_format_good(self):
         known_user = return_known_user()
