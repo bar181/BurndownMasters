@@ -19,16 +19,23 @@
 
     {% for tip in tips %}
       <div class="card w-full shadow-2xl p-4">
-        <div class="card-title uppercase">
-          {{tip.title}}
+       <div class="card-title uppercase">
+          {{tip[1]}}
         </div>
         <div class="py-4">
-          {{tip.text}}
+          {{tip[4]}}
+        </div>
+
+        <div class="py-4 flex justify-between">
+          <div class="text-blue-500">
+            {{tip[5]}}
+          </div>
+          <div class="text-gray-500">
+            by {{tip[2]}}
+          </div>
         </div>
       </div>
     {% endfor %}
-
-
 
   </div>
 

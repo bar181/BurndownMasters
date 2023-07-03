@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import flask_login
-import sqlite3
+import psycopg2
 
 # code sources: chatgpt was used to help with specific syntax and functions including setup
 # code sources: any more advanced prompts are provided in comments
@@ -9,6 +9,27 @@ import sqlite3
 
 # setup stuff - public can view this
 app = Flask(__name__, static_folder='static')
+
+
+@app.route('/')
+def index2():
+    # Establish a connection to the PostgreSQL database using a connection string
+    connection_string = 'postgresql://db:AVNS_w47yHPWFzhZXkeJMpv0@app-a06f5c95-e1c8-4b82-bafc-cd999e4b2920-do-user-14305200-0.b.db.ondigitalocean.com:25060/db?sslmode=require'
+    connection = psycopg2.connect(connection_string)
+    cursor = connection.cursor()
+
+    # Execute a SELECT query on the table
+    cursor.execute('SELECT * FROM approved_users')
+    records = cursor.fetchall()
+
+    cursor.execute('SELECT * FROM posts')
+    tips = cursor.fetchall()
+
+    # Close the cursor and connection
+    cursor.close()
+    connection.close()
+
+    return render_template('index.html', records=records, tips=tips)
 app.secret_key = 'iamPublic_NotASecret1!thatsOkayForNow'
 
 login_manager = flask_login.LoginManager()
@@ -17,22 +38,22 @@ login_manager.init_app(app)
 
 # Our mock database for users
 # users = {'me@ivyguide.edu': {'password': 'notSoSecret1!'}}
-users = {
-    'me@ivyguide.edu': {
-        'id': 0,
-        'name': 'IvyGuide',
-        'email': 'me@ivyguide.edu',
-        'role': 1,
-        'password': 'notSoSecret1!'
-    },
-    'mg@ivyguide.edu': {
-        'id': 1,
-        'name': 'Malaika Goswamy',
-        'email': 'mg@ivyguide.edu',
-        'role': 1,
-        'password': 'notSoSecret1!'
-    }
-}
+# users = {
+#     'me@ivyguide.edu': {
+#         'id': 0,
+#         'name': 'IvyGuide',
+#         'email': 'me@ivyguide.edu',
+#         'role': 1,
+#         'password': 'notSoSecret1!'
+#     },
+#     'mg@ivyguide.edu': {
+#         'id': 1,
+#         'name': 'Malaika Goswamy',
+#         'email': 'mg@ivyguide.edu',
+#         'role': 1,
+#         'password': 'notSoSecret1!'
+#     }
+# }
 
 # verified new user invitation code
 admin_code = "Agile"
@@ -46,9 +67,31 @@ LOWERCASE = True
 class User(flask_login.UserMixin):
     pass
 
+def get_verified_users():
+    connection_string = 'postgresql://db:AVNS_w47yHPWFzhZXkeJMpv0@app-a06f5c95-e1c8-4b82-bafc-cd999e4b2920-do-user-14305200-0.b.db.ondigitalocean.com:25060/db?sslmode=require'
+    connection = psycopg2.connect(connection_string)
+    cursor = connection.cursor()
+
+    # Execute a SELECT query on the table
+    cursor.execute('SELECT * FROM approved_users')
+    users = cursor.fetchall()
+    # return users
+    verified_users = {}
+    for user in users:
+        user_data = {
+            'id': user[0],
+            'name': user[1],
+            'password': user[2],
+            'email': user[4],
+            'role': user[5]
+        }
+        verified_users[user_data['email']] = user_data
+    return verified_users
+
 
 @login_manager.user_loader
 def user_loader(email):
+    users = get_verified_users()
     if email not in users:
         return
 
@@ -60,51 +103,13 @@ def user_loader(email):
 @login_manager.request_loader
 def request_loader(request):
     email = request.form.get('email')
+    users = get_verified_users()
     if email not in users:
         return
 
     user = User()
     user.id = email
     return user
-
-tips = []
-
-tip = {
-    'title': 'Getting Here from airport',
-    'text': "If it's your first time, just take Uber ($25) or taxi ($35).  The subway system rocks for return or cheap students - runs from airport to Harvard Square"
-}
-tips.append(tip)
-tip = {
-    'title': 'Laundry',
-    'text': "There are laundry machines in each dorm (or as Harvard calls them 'Houses' or 'Halls'.  Some use quarters.  Others you need to add cash to a payment card called Crismon Cash.  If you want to be pampered there is a laundry service you can buy"
-}
-tips.append(tip)
-tip = {
-    'title': 'Do I need pillows and bedding?',
-    'text': "Students taking a plane here likely won't have room in their suitcase.  There is a Target one subway stop away.  We were provided a blanket.  Also, check out the donoation bins in each dorm."
-}
-tips.append(tip)
-tip = {
-    'title': 'Is Harvard really as good as in the movies',
-    'text': "Yes. You'll find out!"
-}
-tips.append(tip)
-tip = {
-    'title': 'Is the campus busy in the summer',
-    'text': "Harvard has 2 main terms (Fall and Winter).  The summer is operated by the Summer School.  So no regular HArvard students unless they are working here or taking a summer class like you.  The campus and area is still busy.  You'll see a lot of high school students around and people taking courses to meet on-campus requirements"
-}
-tips.append(tip)
-
-tip = {
-    'title': 'Can I pick a roommate?',
-    'text': "No. I had one roommate and found out when I moved in.  Most dorm rooms are 2 people per room.  Small bedrooms but big common area.  During the regular school year there were 4 people in m dorm room and in the summer only 2"
-}
-tips.append(tip)
-
-@app.route("/")
-def index():
-    return render_template("index.html", tips=tips)
-
 
 @app.route("/register")
 def register():
@@ -114,6 +119,7 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     print("def login - line 131")
+    users = get_verified_users()
     print(users)
     if request.method == 'GET':
         return render_template("login.html")

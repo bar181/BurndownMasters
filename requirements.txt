@@ -1,2 +1,7 @@
+Flask == 2.0.3
+gunicorn == 20.0.4
+wfastcgi == 3.0.0
 Flask
 Flask-Login
+psycopg2-binary==2.9.5
+

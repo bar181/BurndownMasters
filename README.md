@@ -221,22 +221,43 @@ Scrum June 29
     
 17. All BPI are true user stories: BPI near top of list were restated
 
-## Deliverable 3: Sptrint 2 - July 3, 2023
+## Deliverable 3: Sprint 2 - July 3, 2023
 1. Sprint Planning
+   - Forecast is 7 story points for sprint 2 (4 BPI)
 2. Rationale for forecast:
+    - We completed all the setup work in the last sprint (limited experience on team), 
+    - the remaining set up work is minimal 
+    - Last sprint we accomplished 6 story points and using 'Yesterday's Weather' we assume close to the same
+    - Some of the tasks from the last sprint were completed
+    
 3. Sprint planning checklist (with proof)
-4. Backlog stories right size, <50% total effort, refine large items: 
+   - Pulled stories from top of product banklog: True (we re-prioritized based on feedback + added 1 item from retrospective)
+   - Total story points is 7, largest PBI is 2 story points
+   - All 3 dev participated in the activity: We assert this is True (see several images of proof)
+   - Only dev paticipated: True, while 2 dev have multiple roles, both restricted contributions based on dev roles
+4. Decompose user stories: Backlog stories right size, <50% total effort, refine large items: 
+    - stories right size: True max is 2 points (< 50% of total)
+    - Use case 'too large': We refactored auth story item to 2 items to ensure no item is too large
+    - All user stories were updated
+    
 
-    ![backlop - scrum 2](readme_pics/scrum2/backlog_scrum2.jpg)
-
-5. User story to developer tasks:
+5. Dev tasks
+   - Dev tasks: DONE for each PBI and shown in the Miro kanban board 
+   - see Miro for task list in sprint backlog (or daily scrums)
+   - https://miro.com/app/board/uXjVM5h2vXo=/
 6. MIRO for sprint backlog
+   - see Miro for tasks in sprint backlog (public view)
+   - https://miro.com/app/board/uXjVM5h2vXo=/
 7. Public sprint burndown chart:
+   https://docs.google.com/spreadsheets/d/1oet5rf1R_MLOAHF8WQiGeeEle7JRoBY05aYe54bK-dM/edit?usp=sharing 
+   ![sprint_burndown](readme_pics/scrum2/sprint_burndown.PNG)
 8. Daily scrums: (insert pics)
 
-    __TO_DO_IMAGE__ July 1
-    __TO_DO_IMAGE__ July 2
-    __TO_DO_IMAGE__ July 3
+    July 1
+![sprint2_scrum2](readme_pics/scrum2/team_sprint2_scrum1.jpg)
+    July 2
+![sprint2_scrum2](readme_pics/scrum2/team_sprint2_scrum2.jpg)
+    July 3 - no image available 
 
 9. Member activity checklist Discussion occurred:
 
@@ -265,7 +286,7 @@ Scrum June 29
     - login button on navbar, login page with verification:
     - post page with form posted as new item in database:
    
-    ![sprint2_scrum2](readme_pics/scrum2/team_sprint2_scrum1.jpg)
+    
 
    ### Planned work  working on 7 tasks (all 3 devs involved)
    PBI 2: Create categories to enhance UX: 2 tasks planned for DONE
@@ -282,7 +303,7 @@ Scrum June 29
     - login button on navbar, login page with verification: BR plans DONE - no impediments
    
    ### Impediments: 1 potential
-    - Some dependencies.  No resolve plan needed but team aware may require additional effort next day to help
+   - Some dependencies.  No resolve plan needed but team aware may require additional effort next day to help
 - 
 
   
@@ -311,7 +332,7 @@ Scrum June 29
   - login button on navbar, login page with verification:
   - post page with form posted as new item in database:
     
-    ![sprint2_scrum2](readme_pics/scrum2/team_sprint2_scrum2.jpg)
+    !
 
     ### Planned work  working on 7 tasks (all 3 devs involved)
     PBI 2: Create categories to enhance UX: 2 tasks planned for DONE
@@ -336,10 +357,20 @@ Scrum June 29
 12. any impediments: see item 9
 
 13. update sprint task board TWICE and burndown chart (with proof)
+Updated 3 times (below is proof of 2 times)
+![backlop - scrum 2](readme_pics/scrum2/backlog_scrum2.jpg)
+![backlop - scrum 2](readme_pics/scrum2/sprint_backlog_end.PNG)
+
 14. Pair programming evidence:
 15. TDD evidence with 20 tests 
+    - Updated to include directory: tests (per feedback on last grades report)
 16. sprint review 
+    - sprint review was done
 17. Product increment is working software
+- working software URL: https://coral-app-kb426.ondigitalocean.app/
+- invitation __TODO__IMAGE__
+- screen cap of software __TODO__IMAGE__
 18. stakeholder attends sprint review (with proof)
+- DONE with Nat (Summer student from Dunster Hall)
 19. sprint retrospective 
 20. All BPI are true user stories:
