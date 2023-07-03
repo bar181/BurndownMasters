@@ -373,4 +373,11 @@ Updated 3 times (below is proof of 2 times)
 18. stakeholder attends sprint review (with proof)
 - DONE with Nat (Summer student from Dunster Hall)
 19. sprint retrospective 
-20. All BPI are true user stories:
+- retrospective done: True
+- all team members present (MG, BA, BR)
+- Changes identified: Limit meetings to 2 hours (with 1+ hour break between meetings), Finish meetings by 10pm (latest), If possible have 2 people pair programming while the other updates documents 
+- Recommendations to be included in next sprint planning as the most important items
+- Evidence (marked as agreed by all devs): MG agree, BA agree, BR agree
+21. All BPI are true user stories:
+- all items near the top of the product backlog were revisited to ensure true user stories
+- next spring review will update the feedback from a student during the sprint review

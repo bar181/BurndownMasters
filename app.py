@@ -137,11 +137,36 @@ def login():
 
 
 # this is the verified user post
-@app.route('/new-posts')
-# @flask_login.login_required
-def protected():
-    return render_template("new_posts.html", user=flask_login.current_user)
-    # return 'Logged in as: ' + flask_login.current_user.id
+@app.route('/new-posts', methods=['GET', 'POST'])
+@flask_login.login_required
+def new_posts():
+    if request.method == 'GET':
+        return render_template("new_posts.html", user=flask_login.current_user)
+
+    print('new_posts')
+    title = "AAA"
+    author = "Brad"
+    text = "text c"
+    category = "category d"
+    #
+    # title = request.form['title']
+    # author = request.form['author']
+    # text = request.form['text']
+    # category = request.form['category']
+
+
+
+    connection_string = 'postgresql://db:AVNS_w47yHPWFzhZXkeJMpv0@app-a06f5c95-e1c8-4b82-bafc-cd999e4b2920-do-user-14305200-0.b.db.ondigitalocean.com:25060/db?sslmode=require'
+    connection = psycopg2.connect(connection_string)
+    cursor = connection.cursor()
+
+    # Execute a SELECT query on the table
+    insert_query = 'INSERT INTO posts (title, author, text, category) VALUES (%s, %s, %s, %s)'
+    cursor.execute(insert_query, (title, author, text, category))
+    connection.commit()
+
+    return redirect('/')
+
 
 
 @app.route("/bad-request")
