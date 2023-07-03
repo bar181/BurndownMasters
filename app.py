@@ -4,6 +4,7 @@ import psycopg2
 
 # code sources: chatgpt was used to help with specific syntax and functions including setup
 # code sources: any more advanced prompts are provided in comments
+# flask_login documentation
 # external css: tailwindcss.com, daisyui.com
 
 
@@ -11,25 +12,7 @@ import psycopg2
 app = Flask(__name__, static_folder='static')
 
 
-@app.route('/')
-def index2():
-    # Establish a connection to the PostgreSQL database using a connection string
-    connection_string = 'postgresql://db:AVNS_w47yHPWFzhZXkeJMpv0@app-a06f5c95-e1c8-4b82-bafc-cd999e4b2920-do-user-14305200-0.b.db.ondigitalocean.com:25060/db?sslmode=require'
-    connection = psycopg2.connect(connection_string)
-    cursor = connection.cursor()
 
-    # Execute a SELECT query on the table
-    cursor.execute('SELECT * FROM approved_users')
-    records = cursor.fetchall()
-
-    cursor.execute('SELECT * FROM posts')
-    tips = cursor.fetchall()
-
-    # Close the cursor and connection
-    cursor.close()
-    connection.close()
-
-    return render_template('index.html', records=records, tips=tips)
 app.secret_key = 'iamPublic_NotASecret1!thatsOkayForNow'
 
 login_manager = flask_login.LoginManager()
@@ -67,6 +50,67 @@ LOWERCASE = True
 class User(flask_login.UserMixin):
     pass
 
+
+@app.route('/')
+def index2():
+    # Establish a connection to the PostgreSQL database using a connection string
+    connection_string = 'postgresql://db:AVNS_w47yHPWFzhZXkeJMpv0@app-a06f5c95-e1c8-4b82-bafc-cd999e4b2920-do-user-14305200-0.b.db.ondigitalocean.com:25060/db?sslmode=require'
+    connection = psycopg2.connect(connection_string)
+    cursor = connection.cursor()
+
+    # Execute a SELECT query on the table
+    cursor.execute('SELECT * FROM approved_users')
+    records = cursor.fetchall()
+
+    cursor.execute('SELECT * FROM posts')
+    tips = cursor.fetchall()
+
+    # Close the cursor and connection
+    cursor.close()
+    connection.close()
+
+    return render_template('index.html', records=records, tips=tips)
+
+# source: chatGPT prompt: how do i have a dynamic route using flask.  For example:route /category/{moving} where moving can be anything
+@app.route('/category/<category>')
+def category_name(category):
+    # Establish a connection to the PostgreSQL database using a connection string
+    connection_string = 'postgresql://db:AVNS_w47yHPWFzhZXkeJMpv0@app-a06f5c95-e1c8-4b82-bafc-cd999e4b2920-do-user-14305200-0.b.db.ondigitalocean.com:25060/db?sslmode=require'
+    connection = psycopg2.connect(connection_string)
+    cursor = connection.cursor()
+
+    category = category.replace("-", " ")
+
+    # Execute a SELECT query on the 'approved_users' table
+    cursor.execute('SELECT * FROM approved_users')
+    records = cursor.fetchall()
+
+    # Execute a SELECT query on the table
+    query = "SELECT * FROM posts WHERE category = %s"
+    cursor.execute(query, (category,))
+    tips = cursor.fetchall()
+
+    if not tips:
+        category = category.capitalize()
+        query = "SELECT * FROM posts WHERE category = %s"
+        cursor.execute(query, (category,))
+        tips = cursor.fetchall()
+
+    # Close the cursor and connection
+    cursor.close()
+    connection.close()
+
+    # edge case - wrong category name -> return home page (all)
+    if not tips:
+        return redirect('/')
+
+    # Close the cursor and connection
+    cursor.close()
+    connection.close()
+
+    return render_template('category.html', records=records, tips=tips)
+
+# source: chatGPT prompt: how do i convert a database query into a dict in python using these params ....
 def get_verified_users():
     connection_string = 'postgresql://db:AVNS_w47yHPWFzhZXkeJMpv0@app-a06f5c95-e1c8-4b82-bafc-cd999e4b2920-do-user-14305200-0.b.db.ondigitalocean.com:25060/db?sslmode=require'
     connection = psycopg2.connect(connection_string)
@@ -75,20 +119,20 @@ def get_verified_users():
     # Execute a SELECT query on the table
     cursor.execute('SELECT * FROM approved_users')
     users = cursor.fetchall()
-    # return users
+    # return users as assoc array (dict) with field names
     verified_users = {}
     for user in users:
         user_data = {
-            'id': user[0],
-            'name': user[1],
-            'password': user[2],
-            'email': user[4],
-            'role': user[5]
+            'name': user[0],
+            'password': user[1],
+            'email': user[3],
+            'role': user[4],
+            'id': user[5],
         }
         verified_users[user_data['email']] = user_data
     return verified_users
 
-
+# source: Flask-login docs
 @login_manager.user_loader
 def user_loader(email):
     users = get_verified_users()
@@ -99,7 +143,7 @@ def user_loader(email):
     user.id = email
     return user
 
-
+# source: Flask-login docs
 @login_manager.request_loader
 def request_loader(request):
     email = request.form.get('email')
@@ -116,14 +160,19 @@ def register():
     return render_template("register.html")
 
 
+# if already logged in -> redirect to new post
+# login for verified user
+# source: Flask-login docs
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    print("def login - line 131")
-    users = get_verified_users()
-    print(users)
+
+    if request.method == 'GET' and flask_login.current_user:
+        return redirect('/new-posts')
+
     if request.method == 'GET':
         return render_template("login.html")
 
+    users = get_verified_users()
     email = request.form['email']
     password = request.form['password']
 
@@ -136,50 +185,63 @@ def login():
     return redirect('/bad-request')
 
 
+# get the user details by running query
+# known technical debt
+# can refactor later to include in model if we have multiple verified users
+# source: Flask-login docs
+# source: gpt prompt: how do i filter a query by a specific field in python to get user row data ...
+def get_user_details(id):
+    connection_string = 'postgresql://db:AVNS_w47yHPWFzhZXkeJMpv0@app-a06f5c95-e1c8-4b82-bafc-cd999e4b2920-do-user-14305200-0.b.db.ondigitalocean.com:25060/db?sslmode=require'
+    connection = psycopg2.connect(connection_string)
+    cursor = connection.cursor()
+
+    email = str(flask_login.current_user.id)
+    query = "SELECT * FROM approved_users WHERE email = %s"
+    cursor.execute(query, (email,))
+    record = cursor.fetchone()
+    return record
+
+
 # this is the verified user post
+# source: gpt prompt: how do i database insert using python for the following field data
 @app.route('/new-posts', methods=['GET', 'POST'])
 @flask_login.login_required
 def new_posts():
     if request.method == 'GET':
         return render_template("new_posts.html", user=flask_login.current_user)
 
-    print('new_posts')
-    title = "AAA"
-    author = "Brad"
-    text = "text c"
-    category = "category d"
-    #
-    # title = request.form['title']
-    # author = request.form['author']
-    # text = request.form['text']
-    # category = request.form['category']
+    user = get_user_details(flask_login.current_user.id)
 
+    title = request.form['title']
+    author = user[0]
+    text = request.form['text']
+    category = request.form['category']
 
+    print('new_posts record user')
+    print(user)
 
+    # Execute a SELECT query on the table
     connection_string = 'postgresql://db:AVNS_w47yHPWFzhZXkeJMpv0@app-a06f5c95-e1c8-4b82-bafc-cd999e4b2920-do-user-14305200-0.b.db.ondigitalocean.com:25060/db?sslmode=require'
     connection = psycopg2.connect(connection_string)
     cursor = connection.cursor()
-
-    # Execute a SELECT query on the table
     insert_query = 'INSERT INTO posts (title, author, text, category) VALUES (%s, %s, %s, %s)'
     cursor.execute(insert_query, (title, author, text, category))
     connection.commit()
 
-    return redirect('/')
-
+    return redirect('/new-posts')
 
 
 @app.route("/bad-request")
 def bad_request():
     return render_template("bad_request.html")
 
-
+# source: Flask-login docs
 @app.route('/logout')
 def logout():
     flask_login.logout_user()
     return 'Logged out'
 
-
+# source: Flask-login docs
 @login_manager.unauthorized_handler
 def unauthorized_handler():
     return 'Unauthorized', 401

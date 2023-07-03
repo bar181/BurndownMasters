@@ -224,22 +224,26 @@ Scrum June 29
 ## Deliverable 3: Sprint 2 - July 3, 2023
 1. Sprint Planning
    - Forecast is 7 story points for sprint 2 (4 BPI)
+   - IMAGE SHOWS ORIGINAL SPRINT PLANNING BACKLOG AFTER WE FOUND A NEW LOCATION 
+       ![sprint2_scrum1](readme_pics/scrum2/team_sprint2_scrum1.jpg)
 2. Rationale for forecast:
     - We completed all the setup work in the last sprint (limited experience on team), 
-    - the remaining set up work is minimal 
-    - Last sprint we accomplished 6 story points and using 'Yesterday's Weather' we assume close to the same
-    - Some of the tasks from the last sprint were completed
+    - the remaining set up work is minimal (e.g. have live server and flask works)
+    - Last sprint we accomplished 6 story points and using 'Yesterday's Weather' to assume can accomplish the same works
+    - Some of the tasks from the last sprint were completed but BPI was not complete.  This BPI was decomposed as some elements were deemed not a priority 
     
 3. Sprint planning checklist (with proof)
    - Pulled stories from top of product banklog: True (we re-prioritized based on feedback + added 1 item from retrospective)
    - Total story points is 7, largest PBI is 2 story points
    - All 3 dev participated in the activity: We assert this is True (see several images of proof)
    - Only dev paticipated: True, while 2 dev have multiple roles, both restricted contributions based on dev roles
+    
+   - Note items at the top of the backlog match the sprint backlog 
+   - ![backlop - scrum 2](readme_pics/scrum2/backlog_scrum2.jpg)
 4. Decompose user stories: Backlog stories right size, <50% total effort, refine large items: 
     - stories right size: True max is 2 points (< 50% of total)
     - Use case 'too large': We refactored auth story item to 2 items to ensure no item is too large
     - All user stories were updated
-    
 
 5. Dev tasks
    - Dev tasks: DONE for each PBI and shown in the Miro kanban board 
@@ -254,10 +258,10 @@ Scrum June 29
 8. Daily scrums: (insert pics)
 
     July 1
-![sprint2_scrum2](readme_pics/scrum2/team_sprint2_scrum1.jpg)
+![sprint2_scrum1](readme_pics/scrum2/team_sprint2_scrum1.jpg)
     July 2
 ![sprint2_scrum2](readme_pics/scrum2/team_sprint2_scrum2.jpg)
-    July 3 - no image available 
+    July 3 - no image available (only 2 images required per spec)
 
 9. Member activity checklist Discussion occurred:
 
@@ -331,26 +335,30 @@ Scrum June 29
   - new DB table for approved users with email, author name:
   - login button on navbar, login page with verification:
   - post page with form posted as new item in database:
-    
-    !
 
-    ### Planned work  working on 7 tasks (all 3 devs involved)
-    PBI 2: Create categories to enhance UX: 2 tasks planned for DONE
+
+  ### Planned work  working on 7 tasks (all 3 devs involved)
+  PBI 2: Create categories to enhance UX: 2 tasks planned for DONE
     - identify category names: MG plans DONE - no impediments 
     - create a database and ensure connection: BA plans DONE - no impediments
     - 
-    PBI 3: Provide amazing content to wow Mya: 3 tasks planned for DONE, 1 potential impediment
+  PBI 3: Provide amazing content to wow Mya: 3 tasks planned for DONE, 1 potential impediment
     - New content: : MG plans DONE - no impediments
     - Transpose content into database: BA plans DONE - no impediments
     - DB retrieve content by category: BA plans DONE - impediments: pending successful database connections
     - 
-    PBI 4: Approved users can post: 2 tasks planned for DONE
+  PBI 4: Approved users can post: 2 tasks planned for DONE
     -  login functionality: BR plans DONE - no impediments
     - login button on navbar, login page with verification: BR plans DONE - no impediments
     
+  Expected to be done with no impediments for all sprint tasks
 
   ### Impediments:  1 potential
    - Some dependencies.  No resolve plan needed but team aware may require additional effort next day to help
+
+   ## DAILY SCRUM 3: July 3
+   - All sprint backlog items are done
+   - Potential Impediments: need to update readme and post any minor changes to live server (last week github was down)
 
 10. what we did the past 24 hours: see item 9 (marked as DONE or IN-PROCESS) 
 11. what we will do the next 24 hours: see item 9
@@ -362,22 +370,35 @@ Updated 3 times (below is proof of 2 times)
 ![backlop - scrum 2](readme_pics/scrum2/sprint_backlog_end.PNG)
 
 14. Pair programming evidence:
-15. TDD evidence with 20 tests 
-    - Updated to include directory: tests (per feedback on last grades report)
+    All 3 devs worked together.  Along with daily scrum proof (item 8) please see this photo as evidence
+    We assert all 3 devs worked together in both mob and pair programming
+
+    ![pair_sprint2](readme_pics/scrum2/pair_sprint2.PNG)
+
+15. TDD evidence with 28 tests (15 net new, some old test were refactored on new information and 3 old tests removed as no longer required)
+    - Updated location of test to include directory: tests (per feedback on last grades report)
+    - note sprint 2 included refactored original tests based on new information about format from database
+    - Sprint 2 removed 3 old tests that were not valid anymore (now there are 13 sprint 1 tests)
+    - Sprint 2 added 15 net new unit tests (total tests at end of spring 2 is 28)
+    - Ran 28 tests in 0.006s: OK
+  
+    ![test_results_sprint_2](readme_pics/scrum2/test_results_end_sprint2.PNG)
 16. sprint review 
     - sprint review was done
 17. Product increment is working software
 - working software URL: https://coral-app-kb426.ondigitalocean.app/
-- invitation __TODO__IMAGE__
-- screen cap of software __TODO__IMAGE__
+- invitation:  ![invite_whatsapp](readme_pics/scrum2/invite.PNG)
+- screen cap of software ![working_categories_site](readme_pics/scrum2/working_categories.PNG)
 18. stakeholder attends sprint review (with proof)
-- DONE with Nat (Summer student from Dunster Hall)
+    - DONE with Nat (Summer student from Dunster Hall)
+    - ![Nat_reviewing](readme_pics/scrum2/sprint_review_2.PNG)
+    - improvement feedback - I like that there are real tips. Based on feedback, we may lower the priority for self-added tips
 19. sprint retrospective 
-- retrospective done: True
-- all team members present (MG, BA, BR)
-- Changes identified: Limit meetings to 2 hours (with 1+ hour break between meetings), Finish meetings by 10pm (latest), If possible have 2 people pair programming while the other updates documents 
-- Recommendations to be included in next sprint planning as the most important items
-- Evidence (marked as agreed by all devs): MG agree, BA agree, BR agree
+    - retrospective done: True
+    - all team members present (MG, BA, BR)
+    - Changes identified: Limit meetings to 2 hours (with 1+ hour break between meetings), Finish meetings by 10pm (latest), If possible have 2 people pair programming while the other updates documents 
+    - Recommendations to be included in next sprint planning as the most important items
+    - Evidence (marked as agreed by all devs): MG agree, BA agree, BR agree
 21. All BPI are true user stories:
-- all items near the top of the product backlog were revisited to ensure true user stories
-- next spring review will update the feedback from a student during the sprint review
+    - all items near the top of the product backlog were revisited to ensure true user stories (with a priority given to our primary stakeholder - a summer student)
+    - next spring review will update the feedback from a student during the sprint review
