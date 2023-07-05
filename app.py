@@ -22,13 +22,20 @@ login_manager.init_app(app)
 # Our mock database for users
 # users = {'me@ivyguide.edu': {'password': 'notSoSecret1!'}}
 # users = {
-#     'me@ivyguide.edu': {
+#     'agile@ivyguide.edu': {
 #         'id': 0,
-#         'name': 'IvyGuide',
-#         'email': 'me@ivyguide.edu',
+#         'name': 'Agile Student',
+#         'email': 'agile@ivyguide.edu',
 #         'role': 1,
 #         'password': 'notSoSecret1!'
 #     },
+# 'me@ivyguide.edu': {
+#     'id': 0,
+#     'name': 'IvyGuide',
+#     'email': 'me@ivyguide.edu',
+#     'role': 1,
+#     'password': 'notSoSecret1!'
+# },
 #     'mg@ivyguide.edu': {
 #         'id': 1,
 #         'name': 'Malaika Goswamy',
@@ -69,7 +76,9 @@ def index2():
     cursor.close()
     connection.close()
 
-    return render_template('index.html', records=records, tips=tips)
+    authenticated = flask_login.current_user.is_authenticated
+
+    return render_template('index.html', records=records, tips=tips, authenticated=authenticated)
 
 # source: chatGPT prompt: how do i have a dynamic route using flask.  For example:route /category/{moving} where moving can be anything
 @app.route('/category/<category>')
@@ -165,13 +174,15 @@ def register():
 # source: Flask-login docs
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    print('168 GET STart')
 
-    if request.method == 'GET' and flask_login.current_user:
+    if request.method == 'GET' and flask_login.current_user.is_authenticated:
         return redirect('/new-posts')
 
     if request.method == 'GET':
+        print('173 GET')
         return render_template("login.html")
-
+    print('175 POST')
     users = get_verified_users()
     email = request.form['email']
     password = request.form['password']
@@ -207,8 +218,10 @@ def get_user_details(id):
 @app.route('/new-posts', methods=['GET', 'POST'])
 @flask_login.login_required
 def new_posts():
+
+    authenticated = flask_login.current_user.is_authenticated
     if request.method == 'GET':
-        return render_template("new_posts.html", user=flask_login.current_user)
+        return render_template("new_posts.html", user=flask_login.current_user, authenticated = authenticated)
 
     user = get_user_details(flask_login.current_user.id)
 
@@ -239,7 +252,7 @@ def bad_request():
 @app.route('/logout')
 def logout():
     flask_login.logout_user()
-    return 'Logged out'
+    return redirect('/')
 
 # source: Flask-login docs
 @login_manager.unauthorized_handler

@@ -1,15 +1,22 @@
 <div class="navbar bg-red-500">
   <div class="flex-1">
-    <a href="/" class="btn btn-ghost normal-case text-2xl font-bold">IvyGuide</a>
+    <a href="/" class="btn btn-ghost normal-case text-2xl font-bold">IvyGuide </a>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
-      <li>
-        <a href="/login" class="btn  normal-case text-xl">Members Only</a>
+
+      {% if authenticated %}
+        <li>
+          <a href="/login" class="btn normal-case lg:text-xl">New Posts</a>
+        </li>
+        <li>
+          <a href="/logout" class="btn ml-4 normal-case lg:text-xl">Logout</a>
+        </li>
+      {% else %}
+       <li>
+        <a href="/login" class="btn normal-case lg:text-xl">Members Only</a>
       </li>
-<!--      <li>-->
-<!--        <a href="/register" class="btn btn-ghost normal-case text-xl">Sign up</a>-->
-<!--      </li>-->
+      {% endif %}
     </ul>
   </div>
 </div>

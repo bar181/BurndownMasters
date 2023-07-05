@@ -15,8 +15,6 @@ MAX_PASSWORD = 30
 UPPERCASE = True
 LOWERCASE = True
 
-# for category testing: to use in URL (category/<name>)
-approved_categories = ["Moving", "Dining", "Transport", "Residential life", "Things to do", "test"]
 
 # sample user (refactored in sprint 2 based on new known format)
 users = []
@@ -28,6 +26,15 @@ user = {'me@ivyguide.edu': {
     'password': 'notSoSecret1!'}
 }
 users.append(user)
+
+# for category testing: to use in URL (category/<name>)
+approved_categories = ["Moving", "Dining", "Transport", "Residential life", "Things to do", "test"]
+
+
+# for new posts
+POST_MAX_TITLE = 50
+POST_MAX_CONTENT = 500
+POST_MAX_WORD_LENGTH = 40
 
 
 def return_known_user():
@@ -43,6 +50,7 @@ def validate_login(email, password):
         return False
 
     return True
+
 
 def check_login(email, password):
     known_user = return_known_user()
@@ -79,8 +87,78 @@ def has_lowercase(password):
             return True
     return False
 
+
 def is_category_approved(category):
     return category in approved_categories
+
+
+# verified user posts - validations
+
+# functional tests - checks everything for title
+def valid_post_title(text):
+    text = str(text)
+    if not valid_post_title_size(text):
+        return False
+    if not valid_sentence_size(text):
+        return False
+    return True
+
+
+# functional tests - checks everything for new post content (i.e. tip)
+def valid_post_content(text):
+    text = str(text)
+    if not valid_post_content_size(text):
+        return False
+    if not valid_sentence_size(text):
+        return False
+    return True
+
+
+# False if too big or too small
+def valid_post_title_size(text):
+    text = str(text)
+    if len(text) < 1:
+        return False
+    if len(text) > POST_MAX_TITLE:
+        return False
+    return True
+
+
+def valid_post_content_size(text):
+    text = str(text)
+    if len(text) < 1:
+        return False
+    if len(text) > POST_MAX_CONTENT:
+        return False
+    return True
+
+
+# False if a single word is too big
+def valid_word_size(text):
+    if len(text) > POST_MAX_WORD_LENGTH:
+        return False
+    return True
+
+# check all word in input to make sure no word > than max word size
+# code help source: chatgpt prompt: can you provide the code for the function def valid_sentence_size where the pseudocode is provided
+    # break sentence into words (separate by space)
+    #     # loop through words
+    #     # call valid_word_size(text) -> if false return False
+def valid_sentence_size(sentence):
+    # break sentence into words (separated by space)
+    words = sentence.split()
+
+    # loop through words - if false return
+    for word in words:
+        if not valid_word_size(word):
+            return False
+
+    return True
+
+# for new posts
+# POST_MAX_TITLE = 50
+# POST_MAX_CONTENT = 500
+
 
 class MyTestCase(unittest.TestCase):
 
@@ -236,6 +314,71 @@ class MyTestCase(unittest.TestCase):
         category = category.capitalize()
         category = category.replace("-", " ")
         self.assertEqual(True, is_category_approved(category))
+
+    def test_fail_new_post_title_size(self):
+        title = ''
+        self.assertEqual(False, valid_post_title_size(title))
+
+    def test_good_new_post_title_size(self):
+        title = 'I am good'
+        self.assertEqual(True, valid_post_title_size(title))
+
+    def test_new_post_title_too_big_size(self):
+        title = '0123456789 01234567890 1234567890 1234567890 1234567890'
+        self.assertEqual(False, valid_post_title_size(title))
+
+    def test_word_size_single_word(self):
+        title = 'Word'
+        self.assertEqual(True, valid_word_size(title))
+
+    def test_sentence_size_single_word_okay(self):
+        title = 'Word'
+        self.assertEqual(True, valid_sentence_size(title))
+
+    def test_sentence_size_single_word_too_big(self):
+        title = 'IamTooBig012345678901234567890123456789012345678901234567890'
+        self.assertEqual(False, valid_sentence_size(title))
+
+    def test_sentence_size_multiple_words_okay(self):
+        title = 'I am a good Sentence '
+        self.assertEqual(True, valid_sentence_size(title))
+
+    def test_sentence_size_multiple_words_too_big(self):
+        title = 'I am a bad Sentence with a long word IamTooBig012345678901234567890123456789012345678901234567890'
+        self.assertEqual(False, valid_sentence_size(title))
+
+    def test_valid_post_content_size(self):
+        text = 'I am good '
+        self.assertEqual(True, valid_post_content_size(text))
+
+    def test_valid_post_content_size_too_big(self):
+        text = '0123456789 01234567890 1234567890 1234567890 1234567890'
+        text = text * 10
+        self.assertEqual(False, valid_post_content_size(text))
+
+    def test_entire_valid_post_title(self):
+        text = 'I am good '
+        self.assertEqual(True, valid_post_title(text))
+
+    def test_entire_valid_post_title_bad(self):
+        text = '0123456789 01234567890 1234567890 1234567890 1234567890'
+        self.assertEqual(False, valid_post_title(text))
+
+
+    def test_valid_post_content(self):
+        text = 'I am good '
+        self.assertEqual(True, valid_post_content(text))
+
+    def test_valid_post_content_multi_words(self):
+        text = '0123456789 01234567890 1234567890 1234567890 1234567890'
+        self.assertEqual(True, valid_post_content(text))
+
+    def test_valid_post_content_bad_post(self):
+        text = '0123456789 01234567890 1234567890 1234567890 1234567890'
+        long_word = 'I am a bad Sentence with a long word IamTooBig012345678901234567890123456789012345678901234567890'
+        self.assertEqual(False, valid_post_content(text * 10))  # fail too long
+        self.assertEqual(False, valid_post_content(text + long_word))  # fail long word
+        self.assertEqual(False, valid_post_content(text*10 + long_word)) # too long and fail long word
 
 if __name__ == '__main__':
     unittest.main()
