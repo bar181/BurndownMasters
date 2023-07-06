@@ -409,26 +409,36 @@ Updated 3 times (below is proof of 2 times)
 ## Deliverable 3: Final Sprint July 6, 2023
 
 1. Sprint Planning
-- Total story points sprint 3: 6
-- NOTE: ROLE CHANGES - Product Owner is MG and Scrum Master is BR **
+   - Total story points sprint 3: 6
+   - NOTE: **ROLE CHANGES - Product Owner is MG and Scrum Master is BR **
 2. Rationale for forecast:
-- correct bugs (e.g. login failed)
-- Value to student stakeholders based on feedback from real students - they want to see more content
-- We downvoted a functionality (edit new posts) as other spring items directly impacted the user experience (e.g. we can delete posts manually if there is an error for this limited user base)
-
+   - correct bugs (e.g. login failed )
+   - Value to student stakeholders based on feedback from real students - they want to see more content
+   - We downvoted a functionality (edit new posts) as other spring items directly impacted the user experience (e.g. we can delete posts manually if there is an error for this limited user base)
+    - we are starting to understand the team's capabilities and can better estimate story points
 3. Sprint planning checklist (with proof)
    - Pulled stories from top of product banklog: True (we re-prioritized based on feedback from a real stakeholder).  Sprint retrospective items were admin based (e.g. working environment) and implemented not PBIs
    - Total story points is 4, largest PBI is 2 story points
    - All 3 dev participated in the activity: We assert this is True (see several images of proof)
    - Only dev paticipated: True, while 2 dev have multiple roles, both restricted contributions based on dev roles
-4. Backlog stories right size, <50% total effort, refine large items: True.  One BPI for a future sprint was decompiled as 2 items based on new information
-- 
+![team_meeting](readme_pics/scrum3/pair1.jpg)
+
+6. Backlog stories right size, <50% total effort, refine large items: True.  
+- One BPI for a future sprint was decompiled as 2 items based on new information
+- Working hours and insights from last retrospective were implemented (i.e. time constraints - not needed for BPI as already done) 
 5. Sprint backlog includes User story to developer tasks: See Miro (or in Daily scrum for task list)
-https://miro.com/app/board/uXjVM5YGb_Q=/
-7. Public sprint burndown chart:
+- https://miro.com/app/board/uXjVM5YGb_Q=/
+- Tasks are shown in the MIRO and explicitly stated in the daily scrum
 
-__TODO__BURNDOWN_CHART__
+9. Public sprint burndown chart:
 
+![sprint3_burndown](readme_pics/scrum3/sprint3_burndown.jpg)
+
+SUMMARY OF PBI and Sprint backlogs
+![pbi](readme_pics/scrum3/bpibefore.jpg)
+![pbi](readme_pics/scrum3/pbiafter.jpg)
+![sprint_pbi](readme_pics/scrum3/sprintbefore.jpg)
+![sprint_pbi](readme_pics/scrum3/sprintafter.jpg)
 
 8. Daily scrums: (insert pics)
 
@@ -439,24 +449,24 @@ Daily Scrum 2: July 6
 Image of one of the daily scrums:
 ![sprint3_scrum1](readme_pics/scrum3/sprint3_scrum1.jpg)
 
-9. Member activity checklist Discussion occurred:
+9. Member activity checklist Discussion occurred: shows by day tasks, activity by dev, impediments, plans/in-process
 
 
 
    DAILY SCRUM 1: July 5 task list (next 24 hours)
 
    ### PBI 1: CD (1 story point)
-   - Server Config: BA assigned
-   - Testing process and live updates: BA Assigned
+   - Server Config: BA assigned using digital ocean
+   - Testing process and live updates: BA Assigned, taking photos
 
   ### PBI 2: Logout (1 story point)
-  - Logout Functionality: BR Assigned
-  - Change Nav bar: BR Assigned
-  - User testing: MG Assigned
+  - Logout Functionality: BR Assigned - using flask_login, login bug fixed
+  - Change Nav bar: BR Assigned, dynamic nav based on if authorized user
+  - User testing: MG Assigned, full user test
     
   ### PBI 3: New Posts (2 story points)
-  - Interview students: MG Done ;)
-  - Validation rules for form post: BR assigned
+  - Interview students: MG Done - identified 10+ tips based on interviews ;)
+  - Validation rules for form post: BR assigned - estimate 10+ tests
   - Enter new tips: MG assigned
     
   ### PBI 4: Upload images (2 story points)
@@ -467,22 +477,23 @@ Image of one of the daily scrums:
   impediments: 
   - stakeholder meeting tomorrow. Resolution, ensure any coding changes are done by tonight with final review tomorrow. 
     - may not be able to complete the image upload capabilities.  Resolution, separate meeting with Product Owner to identify priorities
+    - do we have correct team responsibilities? Resolution, MG will be product owner and BR scrum master
 
-    DAILY SCRUM 2: July 6 task list (next 24 hours or Done)
+    DAILY SCRUM 2: July 6 
 
 
    ### PBI 1: CD (1 story point) DONE ;)
    - Server Config: BA DONE ;)
-   - Testing process and live updates: BA DONE
+   - Testing process and live updates: BA DONE - photos taken, walked team through process
 
   ### PBI 2: Logout (1 story point) DONE ;)
-  - Logout Functionality: BR DONE
-  - Change Nav bar: BR DONE
-  - User testing: MG DONE
+  - Logout Functionality: BR DONE - no issues
+  - Change Nav bar: BR DONE - no issues
+  - User testing: MG DONE - checked all login/logout
     
   ### PBI 3: New Posts (2 story points) DONE ;)
   - Interview students: MG Done ;)
-  - Validation rules for form post: BR DONE
+  - Validation rules for form post: unit tests BR DONE, BDD BA DONE - BDD required several packages, not as simple as forecasted 
   - Enter new tips: MG DONE
     
   ### PBI 4: Upload images (2 story points)
@@ -493,7 +504,7 @@ Image of one of the daily scrums:
     impediments: 
   - Need help with presentation material: Resolution, entire team will help as we accomplished all the coding goals
     - We require additional training. Resolution, sign up for online classes.  Review python (BR and MG). To be added to next backlog
-    - 
+    - Upload images to be postponed. Resolution, focus on higher priority items and review in next sprint
 10. impediments (see item 9)
 11. update sprint  burndown chart (with proof)
 Done: Start 6 points, scrum 1: 6/6, scrum 2: 4/6 done
@@ -503,17 +514,36 @@ https://miro.com/app/board/uXjVM5YGb_Q=/
 14. Pair programming evidence: (image of 1 meeting required as evidence - all 3 devs were in meeting)
 ![pair1](readme_pics/scrum3/pair1.jpg)
 
-15. TDD evidence with 43 tests (15 new for this sprint), 1 BDD test
-TDD: file: tests/unit_tests.py
-BDD: 1 test completed
+Used mob programming 
+![mob1](readme_pics/scrum3/sprint3_scrum1.jpg)
 
+15. TDD evidence with 43 tests (15 new for this sprint), 1 BDD test
+TDD: file: tests/unit_tests.py 
+BDD: 1 test completed
+Test results evidence
 ![unit_test3](readme_pics/scrum3/unit_test3.PNG)
 16. CI system running with proof
+    - one branch: True (only use main) - see image below or github for proof
+    - CI works automatically: True
+    - CI tests: True- Green
+    - CI Exists (see image in item 17)
+    ![one_branch](readme_pics/scrum3/one_branch.jpg)
+
 17. CD system running with proof
+![cd](readme_pics/scrum3/cd1.jpg)
+![cd](readme_pics/scrum3/cd2.jpg)
+    - pushes to production - true
+    - tests and safety nets uses digital ocean cd processes
+    - proof - see photos 
 18. sprint retrospective 
+    - entire team present: True
+    - 1 helpful thing: several members require additional training on coding.  
+    - action plan: BR and MG to schedule weekly tutoring, BA investigating additional online courses.  All works schedule for next sprint
+    - proof (if we were continuing in real life, we would schedule a time similar to the following image)
+    ![tutor](readme_pics/scrum3/tutor.PNG)
 19. In class: 
--conduct sprint review (10 min)
-20. Sprint review timing: Max 10 minutes: True
+-conduct sprint review : July 6, 2023 at 3:30pm
+20. Sprint review timing: Max 10 minutes: BR responsible for timing
 21. Scrum Master: Brad kept track of time (alarm set for 9:30 minutes) and prompts developers
 22. PO intro: (slide 1)
 - purpose: review our sprint 3, gain feedback, pending feedback launch our MVP
@@ -526,17 +556,19 @@ BDD: 1 test completed
 - radiator: visual progress - Product backlog with quick summary of each sprint showing progress in easy foramt
 24. PO describes our 4 stakeholders - visualized on slide 6 (radiator is images of stakeholders)
 25. Developers describe (demo)
-- Welcome page (home)
-- Local setup 
-- Useful tips online
-- Make workers happy (changed environments)
-- Create categories
-- New content
-- Verified students post
-- CD system
-- logout
-- new posts by category based on interviewing students
-26. PO solicits feedback
+BR demo: Show product, quick review of what we did: sprint 1) tips, sprint 2) added categories based on feedback, sprint 3) verified user functionality leading to more content
+    - Welcome page (home)
+    - Local setup 
+    - Useful tips online
+    - Make workers happy (changed environments)
+    - Create categories
+    - New content
+    - Verified students post
+    - CD system
+    - logout
+    - new posts by category based on interviewing students
+BA demo - show sprint plan and recap
+26. PO solicits feedback (budget is 2-4 minutes - must cutoff at 9:00 into presentation)
 - What would you like to have in next increment (said verbally)
 27. PO future plans (PBI shown) - slide 11 
 - images
@@ -544,6 +576,20 @@ BDD: 1 test completed
 - students login - comments, favorites, ratings
 - trending what's popular
 28. Next release (slide 12)
-- images + anythnigfrom feedback
-29. Rehersed: DONE July 5 at 10pm
+- images + anythnig from feedback
+- - thank audience
+- shows requirements of the sprint review as a 1 page slide showing all requirements were covered 
+29. Rehersed: DONE July 5 at 10pm (multiple rehearsals)
 30. All BPI are true stories: revisited and amended to make top priority items / sprint backlog true stories
+- all current sprint backlog items have full user stories 
+- PBI reordered based on team and PO thoughts, may be adjusted based on additional feedback
+- user stories further in the pipeline are more vague
+- see MIRO for details
+- https://miro.com/app/board/uXjVM5YGb_Q=/
+
+FIN
+
+### Thank you from Team BurndownMasters
+- Malaika Goswamy: Product Owner, Developer
+- Bharat Santhosh Raja: Developer
+- Bradley Ross:  Scrum Master, Developer
