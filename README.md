@@ -522,6 +522,7 @@ TDD: file: tests/unit_tests.py
 BDD: 1 test completed
 Test results evidence
 ![unit_test3](readme_pics/scrum3/unit_test3.PNG)
+![bdd](readme_pics/scrum3/bdd.PNG)
 16. CI system running with proof
     - one branch: True (only use main) - see image below or github for proof
     - CI works automatically: True
