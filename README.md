@@ -588,6 +588,11 @@ BA demo - show sprint plan and recap
 - see MIRO for details
 - https://miro.com/app/board/uXjVM5YGb_Q=/
 
+**copy of presentation material **
+https://docs.google.com/presentation/d/1THDUiek396o1za-Tb1XfBB5PscbRYsd0LjhH-AaqXuo/edit?pli=1#slide=id.p
+- invite also sent to prof.
+- note final slide provides all the requirements - these were reinforced verbally with highlighted provided on appropriate slides 
+
 FIN
 
 ### Thank you from Team BurndownMasters
